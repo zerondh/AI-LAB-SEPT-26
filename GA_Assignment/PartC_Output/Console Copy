@@ -1,0 +1,55 @@
+Gen   1 | best route: A-D-C-F-G-E-B-A | distance: 31 km
+Gen   2 | best route: A-D-C-F-G-E-B-A | distance: 31 km
+Gen   3 | best route: A-D-C-F-G-E-B-A | distance: 31 km
+Gen   4 | best route: A-B-E-D-C-F-G-A | distance: 29 km
+Gen   5 | best route: A-B-E-D-C-F-G-A | distance: 29 km
+Gen   6 | best route: A-B-E-D-C-F-G-A | distance: 29 km
+Gen   7 | best route: A-B-E-D-C-F-G-A | distance: 29 km
+Gen   8 | best route: A-B-E-D-C-F-G-A | distance: 29 km
+Gen   9 | best route: A-B-E-D-C-F-G-A | distance: 29 km
+Gen  10 | best route: A-B-E-D-C-F-G-A | distance: 29 km
+Gen  11 | best route: A-B-E-D-C-F-G-A | distance: 29 km
+Gen  12 | best route: A-B-E-D-C-F-G-A | distance: 29 km
+Gen  13 | best route: A-B-E-D-C-F-G-A | distance: 29 km
+Gen  14 | best route: A-B-E-D-C-F-G-A | distance: 29 km
+Gen  15 | best route: A-B-E-D-C-F-G-A | distance: 29 km
+Gen  16 | best route: A-B-E-D-C-F-G-A | distance: 29 km
+Gen  17 | best route: A-B-E-D-C-F-G-A | distance: 29 km
+Gen  18 | best route: A-B-E-D-C-F-G-A | distance: 29 km
+Gen  19 | best route: A-B-E-D-C-F-G-A | distance: 29 km
+Gen  20 | best route: A-B-E-D-C-F-G-A | distance: 29 km
+Gen  21 | best route: A-B-E-D-C-F-G-A | distance: 29 km
+Gen  22 | best route: A-B-E-D-C-F-G-A | distance: 29 km
+Gen  23 | best route: A-B-E-D-C-F-G-A | distance: 29 km
+Gen  24 | best route: A-B-E-D-C-F-G-A | distance: 29 km
+Gen  25 | best route: A-B-E-D-C-F-G-A | distance: 29 km
+Gen  26 | best route: A-B-E-D-C-F-G-A | distance: 29 km
+Gen  27 | best route: A-B-E-D-C-F-G-A | distance: 29 km
+Gen  28 | best route: A-B-E-D-C-F-G-A | distance: 29 km
+Gen  29 | best route: A-B-E-D-C-F-G-A | distance: 29 km
+Gen  30 | best route: A-B-E-D-C-F-G-A | distance: 29 km
+Gen  31 | best route: A-B-E-D-C-F-G-A | distance: 29 km
+Gen  32 | best route: A-B-E-D-C-F-G-A | distance: 29 km
+Gen  33 | best route: A-B-E-D-C-F-G-A | distance: 29 km
+Gen  34 | best route: A-B-E-D-C-F-G-A | distance: 29 km
+Gen  35 | best route: A-B-E-D-C-F-G-A | distance: 29 km
+Gen  36 | best route: A-B-E-D-C-F-G-A | distance: 29 km
+Gen  37 | best route: A-B-E-D-C-F-G-A | distance: 29 km
+Gen  38 | best route: A-B-E-D-C-F-G-A | distance: 29 km
+Gen  39 | best route: A-B-E-D-C-F-G-A | distance: 29 km
+Gen  40 | best route: A-B-E-D-C-F-G-A | distance: 29 km
+Gen  41 | best route: A-B-E-D-C-F-G-A | distance: 29 km
+Gen  42 | best route: A-B-E-D-C-F-G-A | distance: 29 km
+Gen  43 | best route: A-B-E-D-C-F-G-A | distance: 29 km
+Gen  44 | best route: A-B-E-D-C-F-G-A | distance: 29 km
+Gen  45 | best route: A-B-E-D-C-F-G-A | distance: 29 km
+Gen  46 | best route: A-B-E-D-C-F-G-A | distance: 29 km
+Gen  47 | best route: A-B-E-D-C-F-G-A | distance: 29 km
+Gen  48 | best route: A-B-E-D-C-F-G-A | distance: 29 km
+Gen  49 | best route: A-B-E-D-C-F-G-A | distance: 29 km
+Gen  50 | best route: A-B-E-D-C-F-G-A | distance: 29 km
+
+=== RESULT ===
+Best route : A -> B -> E -> D -> C -> F -> G -> A
+Total distance: 29 km
+Brute-force optimum: A -> B -> E -> D -> C -> F -> G -> A = 29 km

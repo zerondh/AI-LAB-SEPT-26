@@ -1,0 +1,96 @@
+"""Part C: Implementation and Experiment""" 
+import random
+from itertools import permutations
+
+# ---------------- Data ----------------
+LOCATIONS = ["A", "B", "C", "D", "E", "F", "G"]
+DIST = [
+    [0, 4, 8, 6, 7, 9, 5],
+    [4, 0, 5, 7, 3, 8, 6],
+    [8, 5, 0, 4, 6, 3, 7],
+    [6, 7, 4, 0, 5, 6, 8],
+    [7, 3, 6, 5, 0, 4, 6],
+    [9, 8, 3, 6, 4, 0, 5],
+    [5, 6, 7, 8, 6, 5, 0],
+]
+IDX = {name: i for i, name in enumerate(LOCATIONS)}
+DELIVERIES = ["B", "C", "D", "E", "F", "G"]
+
+# ---------------- GA parameters ----------------
+SEED = 42
+POP_SIZE = 20
+GENERATIONS = 50
+TOURNAMENT_SIZE = 3
+MUTATION_RATE = 0.2
+ELITE_COUNT = 2
+
+random.seed(SEED)  # fixed seed for reproducible experiment
+
+
+def route_distance(chromosome):
+    """Total distance of A -> chromosome -> A (includes return to depot)."""
+    path = ["A"] + chromosome + ["A"]
+    return sum(DIST[IDX[path[i]]][IDX[path[i + 1]]] for i in range(len(path) - 1))
+
+
+def create_population(size):
+    """Initial population is random permutations of B-G (all valid)."""
+    return [random.sample(DELIVERIES, len(DELIVERIES)) for _ in range(size)]
+
+
+def tournament_selection(population):
+    """Pick random candidates and the shortest route wins."""
+    contenders = random.sample(population, TOURNAMENT_SIZE)
+    return min(contenders, key=route_distance)
+
+
+def order_crossover(p1, p2):
+    """Order Crossover (OX): copy a slice from p1, fill the rest in p2's order."""
+    a, b = sorted(random.sample(range(len(p1)), 2))
+    child = [None] * len(p1)
+    child[a:b + 1] = p1[a:b + 1]
+    fill = [g for g in p2 if g not in child]
+    for i in range(len(child)):
+        if child[i] is None:
+            child[i] = fill.pop(0)
+    return child
+
+
+def swap_mutation(chromosome):
+    """With some probability, swap two delivery stops."""
+    chromosome = chromosome[:]
+    if random.random() < MUTATION_RATE:
+        i, j = random.sample(range(len(chromosome)), 2)
+        chromosome[i], chromosome[j] = chromosome[j], chromosome[i]
+    return chromosome
+
+
+def run_ga():
+    population = create_population(POP_SIZE)
+    for gen in range(1, GENERATIONS + 1):
+        population.sort(key=route_distance)
+        best = population[0]
+        print(f"Gen {gen:3d} | best route: A-{'-'.join(best)}-A | distance: {route_distance(best)} km")
+
+        # Elitism: best routes unchanged
+        next_pop = [r[:] for r in population[:ELITE_COUNT]]
+        # Fill the rest in with children from crossover and mutation
+        while len(next_pop) < POP_SIZE:
+            child = order_crossover(tournament_selection(population),
+                                    tournament_selection(population))
+            next_pop.append(swap_mutation(child))
+        population = next_pop
+
+    population.sort(key=route_distance)
+    return population[0]
+
+
+if __name__ == "__main__":
+    best = run_ga()
+    print("\n=== RESULT ===")
+    print("Best route :", " -> ".join(["A"] + best + ["A"]))
+    print("Total distance:", route_distance(best), "km")
+
+    # Sanity check
+    opt = min(permutations(DELIVERIES), key=lambda r: route_distance(list(r)))
+    print("Brute-force optimum:", " -> ".join(["A", *opt, "A"]), "=", route_distance(list(opt)), "km")
